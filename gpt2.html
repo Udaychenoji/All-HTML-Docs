@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dynamic Input Font Size</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    padding: 20px;
+  }
+
+  form {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    width: 300px;
+    margin: 0 auto; /* Center the form horizontally */
+  }
+
+  input {
+    display: block;
+    margin-bottom: 10px;
+    padding: 8px;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 16px; /* Default font size */
+  }
+
+  button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background-color: #0056b3;
+  }
+</style>
+</head>
+<body>
+
+<form>
+  <input type="text" placeholder="Type something...">
+  <button type="submit">Submit</button>
+</form>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  var inputField = document.querySelector("input[type='text']");
+  
+  inputField.addEventListener("input", function() {
+    var textLength = this.value.length;
+    
+    // Change font size based on text length
+    if (textLength < 10) {
+      this.style.fontSize = "16px";
+    } else if (textLength >= 10 && textLength < 20) {
+      this.style.fontSize = "20px";
+    } else {
+      this.style.fontSize = "24px";
+    }
+  });
+});
+</script>
+
+</body>
+</html>
